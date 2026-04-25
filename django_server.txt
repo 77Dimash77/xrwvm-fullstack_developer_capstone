@@ -1,0 +1,10 @@
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 25, 2026 - 19:06:55
+Django version 4.2.3, using settings 'djangoproj.settings'
+Starting development server at http://127.0.0.1:8001/
+Quit the server with CTRL-BREAK.
+
+[25/Apr/2026 19:06:58] "POST /djangoapp/login HTTP/1.1" 200 48
