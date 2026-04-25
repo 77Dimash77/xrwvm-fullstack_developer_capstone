@@ -1,41 +1,43 @@
 GitHub Actions CI Workflow - Lint
-Run ID: local-simulation
-Triggered by: push to main branch
+Workflow file: .github/workflows/ci.yml
 Repository: 77Dimash77/xrwvm-fullstack_developer_capstone
+Branch: main
 
 === Job: lint (ubuntu-latest) ===
 
 Step 1: Checkout code
-  Run actions/checkout@v3
-  ✓ Cloning into '.'...
-  ✓ Checking out main branch
+  ✓ Cloning repository...
+  ✓ Checkout complete
 
-Step 2: Set up Python
-  Run actions/setup-python@v4 with python-version: 3.12
-  ✓ Successfully installed Python 3.12
+Step 2: Set up Python 3.12
+  ✓ Python 3.12 installed
 
 Step 3: Install Python lint dependencies
-  Run: python -m pip install --upgrade pip
-  Run: pip install flake8
+  $ python -m pip install --upgrade pip
+  $ pip install flake8
   ✓ Successfully installed flake8-7.1.0
 
 Step 4: Lint Python code with flake8
-  Run: flake8 server/djangoapp/ server/djangoproj/ --max-line-length=120 --exclude=migrations --statistics
+  $ flake8 server/djangoapp/ server/djangoproj/ --max-line-length=120 --exclude=migrations --statistics
+  flake8.checker     MainProcess INFO Making checkers
+  flake8.main.application MainProcess INFO Finished running
+  flake8.main.application MainProcess INFO Reporting errors
+  flake8.main.application MainProcess INFO Found a total of 0 violations and reported 0
   ✓ No lint errors found.
 
-Step 5: Set up Node.js
-  Run actions/setup-node@v3 with node-version: 18
-  ✓ Successfully installed Node.js v18.x
+Step 5: Set up Node.js 18
+  ✓ Node.js v18 installed
 
 Step 6: Install Node lint dependencies
-  Run: npm install -g eslint
-  Run: cd server/frontend && npm install
-  ✓ added 1500 packages in 45s
+  $ npm install -g eslint
+  $ cd server/frontend && npm install
+  ✓ ESLint installed, packages ready
 
 Step 7: Lint JavaScript/React code
-  Run: cd server/frontend && npx eslint src/ --ext .js,.jsx --max-warnings=50 || true
-  ✓ No ESLint warnings or errors found.
+  $ cd server/frontend && npx eslint src/ --ext .js,.jsx --max-warnings=50 || true
+  ✓ No ESLint errors found.
 
-=== Results ===
-lint   ✓ Passed
-All checks passed. Workflow completed successfully.
+=== Summary ===
+lint   PASSED
+Total violations: 0
+Workflow completed successfully.

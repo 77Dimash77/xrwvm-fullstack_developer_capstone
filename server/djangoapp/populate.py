@@ -7,14 +7,16 @@ def initiate():
         {"name": "Mercedes", "description": "Mercedes-Benz is a German luxury automobile manufacturer"},
         {"name": "Audi", "description": "Audi is a German automobile manufacturer"},
         {"name": "Kia", "description": "Kia Corporation is a South Korean automobile manufacturer"},
-        {"name": "Toyota", "description": "Toyota Motor Corporation is a Japanese multinational automotive manufacturer"},
+        {"name": "Toyota", "description": "Toyota Motor Corporation is a multinational automotive manufacturer"},
         {"name": "Ford", "description": "Ford Motor Company is an American multinational automobile manufacturer"},
         {"name": "BMW", "description": "Bayerische Motoren Werke AG is a German multinational manufacturer"},
     ]
 
     car_make_instances = []
     for data in car_make_data:
-        car_make_instances.append(CarMake.objects.get_or_create(name=data['name'], defaults={'description': data['description']})[0])
+        obj = CarMake.objects.get_or_create(
+            name=data['name'], defaults={'description': data['description']})[0]
+        car_make_instances.append(obj)
 
     car_model_data = [
         {"name": "Pathfinder", "type": "SUV", "year": 2023, "car_make": car_make_instances[0]},
